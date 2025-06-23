@@ -31,6 +31,7 @@ const GameTile: React.FC<GameTileProps> = ({
       <img
         src={iconPath}
         alt={tile.type}
+        loading="lazy"
         className="w-full h-full object-contain"
         style={{
           filter: shouldShowActive

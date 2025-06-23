@@ -55,6 +55,7 @@ const GameBoard: React.FC<GameBoardProps> = ({
     <div className="relative w-full aspect-square rounded-xl bg-black/40">
       <img
         src="/assets/bg/light.png"
+        loading="lazy"
         alt="light"
         className="absolute top-0 left-0 w-full h-full opacity-0 animate-pulse"
       />
