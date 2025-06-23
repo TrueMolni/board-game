@@ -1,10 +1,6 @@
 import React from "react";
 
-interface ProgressBarProps {
-  current: number;
-  max: number;
-  label: string;
-}
+import { ProgressBarProps } from "../types";
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ current, max, label }) => {
   const segments = Array.from({ length: max });
@@ -28,7 +24,6 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ current, max, label }) => {
                 : "bg-white/20"
             }`}
           >
-            {/* внутрішній ефект блиску на заповнених сегментах */}
             {index < current && (
               <div className="w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse opacity-60 rounded-[4px]" />
             )}

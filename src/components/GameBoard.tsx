@@ -1,15 +1,10 @@
 import React from "react";
+
 import GameTile from "./GameTile";
 import PlayerToken from "./PlayerToken";
 import Dice from "./Dice";
-import { GameTile as GameTileType, GameState } from "../types";
 
-interface GameBoardProps {
-  tiles: GameTileType[];
-  gameState: GameState;
-  onTileClick: (tileId: number) => void;
-  onTileHover: (tileId: number | null) => void;
-}
+import { GameBoardProps } from "../types";
 
 const GameBoard: React.FC<GameBoardProps> = ({
   tiles,
@@ -18,7 +13,6 @@ const GameBoard: React.FC<GameBoardProps> = ({
   onTileHover,
 }) => {
   const getTilePosition = (index: number) => {
-    // 6x6 grid perimeter positions (20 tiles around the edge)
     const positions = [
       // Top row (0-5)
       [0, 0],
@@ -59,9 +53,8 @@ const GameBoard: React.FC<GameBoardProps> = ({
 
   return (
     <div className="relative w-full aspect-square rounded-xl bg-black/40">
-      {/* Game Board Grid */}
       <img
-        src="/src/assets/bg/light.png"
+        src="/assets/bg/light.png"
         alt="light"
         className="absolute top-0 left-0 w-full h-full opacity-0 animate-pulse"
       />
@@ -97,7 +90,6 @@ const GameBoard: React.FC<GameBoardProps> = ({
           );
         })}
 
-        {/* Player Token */}
         <div
           className="absolute transition-all duration-500 ease-in-out"
           style={getTokenPosition(gameState.currentPosition)}
@@ -105,7 +97,6 @@ const GameBoard: React.FC<GameBoardProps> = ({
           <PlayerToken isMoving={gameState.isMoving} />
         </div>
 
-        {/* Center Dice */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <Dice value={gameState.diceValue} isRolling={gameState.isRolling} />
         </div>

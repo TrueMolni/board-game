@@ -1,9 +1,7 @@
 import React from "react";
 import { User } from "lucide-react";
 
-interface PlayerTokenProps {
-  isMoving: boolean;
-}
+import { PlayerTokenProps } from "../types";
 
 const PlayerToken: React.FC<PlayerTokenProps> = ({ isMoving }) => {
   return (

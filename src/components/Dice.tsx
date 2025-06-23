@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-interface DiceProps {
-  value: number;
-  isRolling: boolean;
-}
+import { DiceProps } from "../types";
 
 const Dice: React.FC<DiceProps> = ({ value, isRolling }) => {
   const [animationFrame, setAnimationFrame] = useState(1);
@@ -20,9 +17,9 @@ const Dice: React.FC<DiceProps> = ({ value, isRolling }) => {
 
   const getDiceImage = () => {
     if (isRolling) {
-      return `/src/assets/icons/diceAnimation${animationFrame}.svg`;
+      return `/assets/icons/diceAnimation${animationFrame}.svg`;
     }
-    return `/src/assets/icons/Value=${value}.svg`;
+    return `/assets/icons/Value=${value}.svg`;
   };
 
   return (

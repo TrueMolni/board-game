@@ -1,11 +1,6 @@
 import React from "react";
 
-interface BalanceProps {
-  balance: number;
-  availableRolls: number;
-  maxRolls: number;
-  onAddRoll: () => void;
-}
+import { BalanceProps } from "../types";
 
 const Balance: React.FC<BalanceProps> = ({
   balance,
@@ -18,7 +13,7 @@ const Balance: React.FC<BalanceProps> = ({
   return (
     <div className="flex items-center justify-center gap-2 mb-9">
       <img
-        src="/src/assets/icons/DiceNoBg.svg"
+        src="/assets/icons/DiceNoBg.svg"
         alt="dice"
         className="w-8 h-8"
         onError={(e) => {
@@ -26,7 +21,9 @@ const Balance: React.FC<BalanceProps> = ({
           target.style.display = "none";
         }}
       />
-      <span className="text-white font-bold text-2xl leading-[100%]">{balance}</span>
+      <span className="text-white font-bold text-2xl leading-[100%]">
+        {balance}
+      </span>
 
       <button
         onClick={onAddRoll}

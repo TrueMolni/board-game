@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
+
 import GameBoard from "./components/GameBoard";
 import Balance from "./components/Balance";
 import ProgressBar from "./components/ProgressBar";
 import Timer from "./components/Timer";
 import Modal from "./components/Modal";
+
 import { GameTile, GameState } from "./types";
 
 const INITIAL_TILES: GameTile[] = [
@@ -252,8 +254,6 @@ function App() {
     setGameState((prev) => ({ ...prev, showModal: false }));
   };
 
-  // const isTimerVisible = gameState.availableRolls < gameState.maxRolls;
-
   const closeOnBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const backdrop = document.querySelector(".modal");
     if (e.target === backdrop)
@@ -265,7 +265,7 @@ function App() {
       className="min-h-screen text-white relative overflow-hidden"
       style={{
         backgroundImage:
-          "url(/src/assets/bg/top-star-bg.svg), url(/src/assets/bg/bottom-star-bg.svg), radial-gradient(rgba(153, 85, 255, 0.8), rgba(24, 26, 32, 0.5))",
+          "url(/assets/bg/top-star-bg.svg), url(/assets/bg/bottom-star-bg.svg), radial-gradient(rgba(153, 85, 255, 0.8), rgba(24, 26, 32, 0.5))",
         backgroundColor: "black",
         backgroundPosition: "top, bottom",
         backgroundRepeat: "repeat-x",
@@ -278,23 +278,23 @@ function App() {
             <button className="flex min-h-[30px] font-[SF Pro Rounded] font-bold items-center bg-white/20 gap-3 rounded-[80px] px-3 hover:bg-white/10 transition-colors text-[13px] leading-[13px]">
               <img
                 className="rotate-90 w-[10px]"
-                src="src/assets/icons/Arrow-down.svg"
+                src="/assets/icons/Arrow-down.svg"
               />
 
               <span>Close</span>
             </button>
-            <img src="/src/assets/logo/logo.png" alt="Roll Craft Logo" />
-            <div className="flex font-bold items-center bg-white/20 rounded-[80px] px-transition-colors text-[13px] leading-[13px]">
-              <button className="flex p-2 min-h-[30px] hover:bg-white/10 transition-colors rounded-[80px]">
-                <img src="src/assets/icons/Arrow-down.svg" />
+            <img src="/assets/logo/logo.png" alt="Roll Craft Logo" />
+            <div className="flex items-center bg-white/20 rounded-[80px]">
+              <button className="flex px-[10px] min-h-[30px] hover:bg-white/10 transition-colors rounded-[80px]">
+                <img src="/assets/icons/Arrow-down.svg" />
               </button>
-              <button className="flex font-bold min-h-[30px] items-center rounded-[80px] px-3 hover:bg-white/10 transition-colors text-[13px] leading-[13px]">
-                <img src="src/assets/icons/Dots.svg" />
+              <button className="flex font-bold min-h-[30px] items-center rounded-[80px] px-[10px] hover:bg-white/10 transition-colors text-[13px] leading-[13px]">
+                <img src="/assets/icons/Dots.svg" />
               </button>
             </div>
           </div>
 
-          <h1 className="relative text-white text-lg font-bold flex items-center w-full justify-center title-divider">
+          <h1 className="relative text-white font-[Inter] text-2xl leading-[100%] font-extrabold flex items-center w-full justify-center title-divider">
             Roll Craft
           </h1>
         </div>
@@ -308,10 +308,7 @@ function App() {
           />
 
           {/* Timer */}
-          <Timer
-            timeRemaining={gameState.timeRemaining}
-            // isVisible={isTimerVisible}
-          />
+          <Timer timeRemaining={gameState.timeRemaining} />
 
           {/* Game Board */}
           <div className="mb-9">

@@ -1,9 +1,5 @@
 import React from "react";
-
-interface TimerProps {
-  timeRemaining: number;
-  isVisible?: boolean
-}
+import { TimerProps } from "../types";
 
 const Timer: React.FC<TimerProps> = ({ timeRemaining, isVisible = true }) => {
   const formatTime = (seconds: number) => {
@@ -28,17 +24,3 @@ const Timer: React.FC<TimerProps> = ({ timeRemaining, isVisible = true }) => {
 };
 
 export default Timer;
-
-/*
-  return (
-    <div className="flex items-center justify-center mb-4">
-      <div className="bg-black/20 h-8 flex items-center rounded-lg px-3 border border-white/10">
-        <span className="text-white/80 font-bold text-sm tracking-wider">
-          {formatTime(timeRemaining)}
-        </span>
-      </div>
-    </div>
-  );
-};
-
-*/
