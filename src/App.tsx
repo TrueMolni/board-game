@@ -165,6 +165,7 @@ function App() {
                 star: "+5 Stars!",
                 gem: "Rare Gem!",
                 gold: "+20 Gold!",
+                start: "Rare Gem!",
                 box: "Mystery Box!",
                 pickaxe: "Mining Tool!",
                 truck: "Transport Bonus!",
